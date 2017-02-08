@@ -76,7 +76,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<BaseMsg> {
                         System.out.println(askMsg.getClientId()+" 客户端已断开！");
                         return;
                     }
-                    channel.writeAndFlush(replyMsg);
+//                    channel.writeAndFlush(replyMsg);
                 }
             }break;
 

@@ -69,7 +69,7 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<BaseMsg> {
                 ReplyClientBody replyClientBody=new ReplyClientBody("客户端发送数据: "+ask++);
                 ReplyMsg replyMsg=new ReplyMsg();
                 replyMsg.setBody(replyClientBody);
-                channelHandlerContext.writeAndFlush(replyMsg);
+//                channelHandlerContext.writeAndFlush(replyMsg);
             }break;
 
             case REPLY:{

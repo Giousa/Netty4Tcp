@@ -64,17 +64,17 @@ public class NettyClientBootstrap {
         Constants.setClientId("001");
         NettyClientBootstrap bootstrap=new NettyClientBootstrap(9999,"localhost");
 
-        LoginMsg loginMsg=new LoginMsg();
-        loginMsg.setPassword("yao");
-        loginMsg.setUserName("robin");
-        bootstrap.socketChannel.writeAndFlush(loginMsg);
-        while (true){
-            TimeUnit.SECONDS.sleep(3);
-            AskMsg askMsg=new AskMsg();
-            AskParams askParams=new AskParams();
-            askParams.setAuth("authToken");
-            askMsg.setParams(askParams);
-            bootstrap.socketChannel.writeAndFlush(askMsg);
-        }
+//        LoginMsg loginMsg=new LoginMsg();
+//        loginMsg.setPassword("yao");
+//        loginMsg.setUserName("robin");
+//        bootstrap.socketChannel.writeAndFlush(loginMsg);
+//        while (true){
+//            TimeUnit.SECONDS.sleep(3);
+//            AskMsg askMsg=new AskMsg();
+//            AskParams askParams=new AskParams();
+//            askParams.setAuth("authToken");
+//            askMsg.setParams(askParams);
+//            bootstrap.socketChannel.writeAndFlush(askMsg);
+//        }
     }
 }
