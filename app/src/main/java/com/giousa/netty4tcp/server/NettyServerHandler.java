@@ -12,6 +12,7 @@ import com.giousa.netty4tcp.common.ReplyServerBody;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.socket.SocketChannel;
@@ -66,7 +67,12 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<BaseMsg> {
                     ReplyServerBody replyBody=new ReplyServerBody("服务端发送数据: "+ask++);
                     ReplyMsg replyMsg=new ReplyMsg();
                     replyMsg.setBody(replyBody);
-                    NettyChannelMap.get(askMsg.getClientId()).writeAndFlush(replyMsg);
+                    Channel channel = NettyChannelMap.get(askMsg.getClientId());
+                    if(channel == null){
+                        System.out.println(askMsg.getClientId()+" 客户端已断开！");
+                        return;
+                    }
+                    channel.writeAndFlush(replyMsg);
                 }
             }break;
 
