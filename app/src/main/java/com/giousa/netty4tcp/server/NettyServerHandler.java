@@ -37,6 +37,10 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<BaseMsg> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, BaseMsg baseMsg) throws Exception {
+
+        System.out.println("Server 获取类型："+baseMsg.getType());
+
+
         if(MsgType.LOGIN.equals(baseMsg.getType())){
             LoginMsg loginMsg=(LoginMsg)baseMsg;
             if("robin".equals(loginMsg.getUserName())&&"yao".equals(loginMsg.getPassword())){
