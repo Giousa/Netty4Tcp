@@ -36,7 +36,7 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<BaseMsg> {
                 case WRITER_IDLE:
                     PingMsg pingMsg=new PingMsg();
                     ctx.writeAndFlush(pingMsg);
-                    System.out.println("Client  send ping to server----------");
+                    System.out.println("-----------Client send ping to server----------");
                     break;
                 default:
                     break;
@@ -60,7 +60,8 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<BaseMsg> {
             }break;
 
             case PING:{
-                System.out.println("Client-------------"+(ping++)+"---------------");
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("ss");
+                System.out.println("Client Ping:"+(ping++)+"----------time----------"+simpleDateFormat.format(new Date()));
 
             }break;
 

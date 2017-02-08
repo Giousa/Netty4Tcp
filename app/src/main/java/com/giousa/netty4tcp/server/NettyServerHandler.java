@@ -58,7 +58,8 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<BaseMsg> {
         switch (baseMsg.getType()){
 
             case PING:{
-                System.out.println("Server-------------"+(ping++)+"---------------");
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("ss");
+                System.out.println("Server Ping:"+(ping++)+"----------time----------"+simpleDateFormat.format(new Date()));
                 PingMsg pingMsg=(PingMsg)baseMsg;
                 PingMsg replyPing=new PingMsg();
                 NettyChannelMap.get(pingMsg.getClientId()).writeAndFlush(replyPing);

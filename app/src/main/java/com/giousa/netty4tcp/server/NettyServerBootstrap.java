@@ -35,7 +35,7 @@ public class NettyServerBootstrap {
         bootstrap.channel(NioServerSocketChannel.class);
         bootstrap.option(ChannelOption.SO_BACKLOG, 128);
         //通过NoDelay禁用Nagle,使消息立即发出去，不用等待到一定的数据量才发出去
-        bootstrap.option(ChannelOption.TCP_NODELAY, true);
+//        bootstrap.option(ChannelOption.TCP_NODELAY, true);
         //保持长连接状态
         bootstrap.childOption(ChannelOption.SO_KEEPALIVE, true);
         bootstrap.childHandler(new ChannelInitializer<SocketChannel>() {
