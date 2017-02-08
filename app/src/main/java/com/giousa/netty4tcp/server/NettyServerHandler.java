@@ -9,6 +9,9 @@ import com.giousa.netty4tcp.common.ReplyClientBody;
 import com.giousa.netty4tcp.common.ReplyMsg;
 import com.giousa.netty4tcp.common.ReplyServerBody;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.socket.SocketChannel;
@@ -71,7 +74,10 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<BaseMsg> {
                 //收到客户端回复
                 ReplyMsg replyMsg=(ReplyMsg)baseMsg;
                 ReplyClientBody clientBody=(ReplyClientBody)replyMsg.getBody();
-                System.out.println("Server收到客户端回复: "+clientBody.getClientInfo()+"  次数："+reply++);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("ss");
+                System.out.println("Server收到客户端回复: "
+                        + clientBody.getClientInfo()+" 时间："+simpleDateFormat.format(new Date())
+                        +"  次数："+reply++);
             }break;
 
             default:break;
