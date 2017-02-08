@@ -92,4 +92,8 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<BaseMsg> {
     }
 
 
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        System.out.println("server exception:"+cause.toString());
+    }
 }

@@ -82,4 +82,9 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<BaseMsg> {
         }
         ReferenceCountUtil.release(msgType);
     }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        System.out.println("client exception:"+cause.toString());
+    }
 }
